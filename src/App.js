@@ -5,11 +5,15 @@ import Footer from "./components/Footer";
 import Personnages from "./pages/Personnages";
 import Comics from "./pages/Comics";
 import Favoris from "./pages/Favoris";
+import ComicsByPersonnage from "./pages/ComicsByPersonnage";
 
 const App = () => {
   return (
     <Router>
-      <Header />
+      <Header />      
+      <Routes>
+        <Route path = "/comics/:characterId" element = {<ComicsByPersonnage />}></Route>
+      </Routes>
       <Routes>
         <Route path="/comics" element={<Comics />}></Route>
       </Routes>
@@ -19,6 +23,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Personnages />}></Route>
       </Routes>
+
       <Footer />
     </Router>
   );

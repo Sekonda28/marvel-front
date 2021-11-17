@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Personnages = () => {
   const [charData, setCharData] = useState(null);
@@ -13,27 +14,33 @@ const Personnages = () => {
         );
         setCharData(response.data);
         setIsLoading(false);
-        console.log(charData);
       } catch (error) {
         console.log(error.message);
       }
     };
 
     fetchData();
-  }, [charData]);
+  }, []);
   return (
     <div className="Personnages">
       {isLoading ? (
         <div>Page loading ...</div>
       ) : (
-        <div>
-          {" "}
+        <div className="char-container">
           {charData.map((char, index) => {
+            console.log(char._id)
             return (
-              <div className="char-card">
-                <p>ff</p>
-                <p>fdfdf</p>
-              </div>
+              <Link to={`/comics/${char._id}`} key={char._id}>
+                
+                <div className="char-card" key={char.id}>
+                  <img
+                    src={char.thumbnail.path + "." + char.thumbnail.extension}
+                    alt="Marvel hero"
+                  />
+                  <p>{char.name}</p>
+                  <p>{char.description}</p>
+                </div>
+              </Link>
             );
           })}
         </div>

@@ -1,1 +1,43 @@
 /* Other rules */
+
+/* Personnage Page */
+
+.App{
+    box-sizing: border-box;
+}
+
+.char-container{
+    max-width: 1280px;
+    background-color: bisque;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto
+
+}
+
+.char-card{
+    width: 150px
+}
+
+.char-card>img{
+    height: 100px
+}
+
+/* ComicsByPersonnagePage */
+
+.comicList-container{
+    max-width: 1280px;
+    background-color: lightcoral;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto
+
+}
+
+.comicList-card{
+    width: 150px
+}
+
+.comicList-card>img{
+    height: 100px
+}
