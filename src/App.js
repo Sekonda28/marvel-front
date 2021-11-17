@@ -9,6 +9,7 @@ import ComicsByPersonnage from "./pages/ComicsByPersonnage";
 
 const App = () => {
   return (
+    <div className = "App">
     <Router>
       <Header />      
       <Routes>
@@ -25,7 +26,7 @@ const App = () => {
       </Routes>
 
       <Footer />
-    </Router>
+    </Router></div>
   );
 };
 

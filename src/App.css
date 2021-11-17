@@ -1,5 +1,86 @@
 /* Other rules */
+@font-face {
+    font-family: 'Marvel';
+    src: url('/src/assets/fonts/Marvel-fonts/Marvel-Bold.eot');
+    src: url('/src/assets/fonts/Marvel-fonts/Marvel-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/src/assets/fonts/Marvel-fonts/Marvel-Bold.woff2') format('woff2'),
+        url('/src/assets/fonts/Marvel-fonts/Marvel-Bold.woff') format('woff'),
+        url('/src/assets/fonts/Marvel-fonts/Marvel-Bold.ttf') format('truetype'),
+        url('/src/assets/fonts/Marvel-fonts/Marvel-Bold.svg#Marvel-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: 'Marvel';
+    src: url('/src/assets/fonts/Marvel-fonts/Marvel-Regular.eot');
+    src: url('/src/assets/fonts/Marvel-fonts/Marvel-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/src/assets/fonts/Marvel-fonts/Marvel-Regular.woff2') format('woff2'),
+        url('/src/assets/fonts/Marvel-fonts/Marvel-Regular.woff') format('woff'),
+        url('/src/assets/fonts/Marvel-fonts/Marvel-Regular.ttf') format('truetype'),
+        url('/src/assets/fonts/Marvel-fonts/Marvel-Regular.svg#Marvel-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+.App{
+    background-color: #e23636;
+    height: 100%;
+    font-family: "Marvel", sans-serif;
+}
+
+
+/* Header */
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #131414;
+    height: 85px;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    color: white;
+   
+}
+
+.header-container .logo{
+    height: 45px;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+.header-container>span{
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.button-characters, .button-comics{
+    margin-right: 30px;
+}
+
+nav>button{
+    width: 100px;
+    font-size: 17px;
+    font-weight: 700;
+    height: 30px;
+    width: 150px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: inherit;
+    border: 2px solid #e23636;
+    color: #fff;
+    cursor: pointer;
+}
+
+nav>button:hover{
+    background-color: #e23636;
+}
 /* Personnage Page */
 
 .App{
@@ -7,8 +88,7 @@
 }
 
 .char-container{
-    max-width: 1280px;
-    background-color: bisque;
+    max-width: 90vw;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto
@@ -26,7 +106,7 @@
 /* ComicsByPersonnagePage */
 
 .comicList-container{
-    max-width: 1280px;
+    max-width: 90vw;
     background-color: lightcoral;
     display: flex;
     flex-wrap: wrap;
@@ -39,5 +119,24 @@
 }
 
 .comicList-card>img{
+    height: 100px
+}
+
+/* Comics Page */
+
+.comic-container{
+    max-width: 90vw;
+    background-color: lightcoral;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto
+
+}
+
+.comic-card{
+    width: 150px
+}
+
+.comic-card>img{
     height: 100px
 }
