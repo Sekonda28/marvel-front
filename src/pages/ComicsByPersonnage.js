@@ -31,6 +31,11 @@ const ComicsByPersonnage = () => {
         <div className="comicList-container">
           {comicList.comics.map((comic, index) => {
               return(
+                <>
+                <div className = "Char-banner">
+                <img src="" alt="" />
+
+                </div>
             <div className="comicList-card" key = {comic._id}>
               <img
                 src={comic.thumbnail.path + "." + comic.thumbnail.extension}
@@ -38,7 +43,7 @@ const ComicsByPersonnage = () => {
               />
               <p>{comic.title}</p>
               <p>{comic.description}</p>
-            </div>)
+            </div></>)
           })}
         </div>
       )}

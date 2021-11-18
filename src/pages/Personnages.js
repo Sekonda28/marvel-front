@@ -28,17 +28,19 @@ const Personnages = () => {
       ) : (
         <div className="char-container">
           {charData.map((char, index) => {
-            console.log(char._id)
             return (
+          char.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"&&
               <Link to={`/comics/${char._id}`} key={char._id}>
                 
-                <div className="char-card" key={char.id}>
+                <div className="char-card" key={char._id}>
                   <img
                     src={char.thumbnail.path + "." + char.thumbnail.extension}
                     alt="Marvel hero"
                   />
-                  <p>{char.name}</p>
-                  <p>{char.description}</p>
+                  <div className="char-info">                  
+                  <h2>{char.name}</h2>
+                  <p>{char.description?char.description:"Character description coming soon..."}</p></div>
+
                 </div>
               </Link>
             );

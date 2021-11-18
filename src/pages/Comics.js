@@ -27,15 +27,14 @@ const Comics = () => {
       ) : (
         <div className="comic-container">
           {comics.map((comic, index) => {
-            console.log(comic._id);
-            return (
+            return (comic.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" &&
               <div className="comic-card" key={comic.id}>
                 <img
                   src={comic.thumbnail.path + "." + comic.thumbnail.extension}
                   alt="Marvel hero"
                 />
                 <p>{comic.name}</p>
-                <p>{comic.description}</p>
+                <p>{comic.description?comic.description: "Description coming soon..."}</p>
               </div>
             );
           })}
