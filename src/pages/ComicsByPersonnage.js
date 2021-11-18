@@ -26,7 +26,7 @@ const ComicsByPersonnage = () => {
   return (
     <div className="CharByPersonnage">
       {isLoading ? (
-        <div>Page Loading ... </div>
+        <div className="isLoading">Page Loading ... </div>
       ) : (
         <div className="comicList-container">
           {comicList.comics.map((comic, index) => {
@@ -36,6 +36,7 @@ const ComicsByPersonnage = () => {
                 <img src="" alt="" />
 
                 </div>
+              {comic.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"&&
             <div className="comicList-card" key = {comic._id}>
               <img
                 src={comic.thumbnail.path + "." + comic.thumbnail.extension}
@@ -43,7 +44,7 @@ const ComicsByPersonnage = () => {
               />
               <p>{comic.title}</p>
               <p>{comic.description}</p>
-            </div></>)
+            </div>}</>)
           })}
         </div>
       )}
