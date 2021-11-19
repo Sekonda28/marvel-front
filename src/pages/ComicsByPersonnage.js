@@ -28,14 +28,12 @@ const ComicsByPersonnage = () => {
       {isLoading ? (
         <div className="isLoading">Page Loading ... </div>
       ) : (
-        <div className="comicList-container">
+        <div className="comicList-container">                
+                <div className = "Char-banner" >
+                <img src="" alt="" />  </div>
           {comicList.comics.map((comic, index) => {
               return(
-                <div key={comic._id} >
-                <div className = "Char-banner" >
-                <img src="" alt="" />
-
-                </div>
+                <div>
               {comic.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"&&
             <div className="comicList-card">
               <img
@@ -43,6 +41,20 @@ const ComicsByPersonnage = () => {
                 alt="comic cover"
               />
               <p>{comic.title}</p>
+              <p
+                      className="favourite-line"
+                      // onClick={()=>{handleClick(comic._id)
+                      // setLikeStatus(true)}}
+                    >
+                      Add to favourites
+                      {/* <span className="fafas">
+                        {likeStatus ? (
+                          <i className="fas fa-heart"></i>
+                        ) : (
+                          <i className="far fa-heart"></i>
+                        )}
+                      </span> */}
+                    </p>
               <p>{comic.description}</p>
             </div>}</div>)
           })}
