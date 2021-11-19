@@ -6,6 +6,7 @@ const Comics = ({ favorisList, setFavorisList }) => {
   const [comics, setComics] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [liked,setLiked] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,13 +49,16 @@ const Comics = ({ favorisList, setFavorisList }) => {
               }}
             />
           </div>
-
+          <div className="comic-container">{comics.map((comic, index)=>{return(
           <Comic
-            comics={comics}
+            comic={comic}
             favorisList={favorisList}
             setFavorisList={setFavorisList}
-          />
-        </>
+            setLiked = {setLiked}
+            liked={liked}
+          />)})}
+        </div></>
+
       )}
     </div>
   );
