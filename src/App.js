@@ -34,7 +34,7 @@ const App = () => {
         </Routes>
         <Routes>
           <Route
-            path="/favorites"
+            path="/favourites"
             element={
               <Favoris
                 favorisList={favorisList}

@@ -11,14 +11,7 @@ const Favoris = ({ setFavorisList, favorisList }) => {
           "https://marvel-api-back.herokuapp.com/comics"
         );
         setComicData(response.data);
-        const favourites = localStorage.getItem("favourites");
-        console.log(favourites);
-        const newTab = [];
-        if (favourites !== null) {
-          newTab.push(favourites.split(","));
-          setFavorisList(newTab);
-          console.log(favorisList);
-        }
+
 
         setIsLoading(false);
       } catch (error) {
@@ -27,7 +20,17 @@ const Favoris = ({ setFavorisList, favorisList }) => {
     };
 
     fetchData();
-  }, [setFavorisList, favorisList]);
+  }, []);
+
+
+  const favourites = localStorage.getItem("favourites");
+  // console.log(favourites);
+  // const newTab = [];
+  // if (favourites !== null) {
+  //   newTab.push(favourites.split(","));
+  //   setFavorisList(newTab);
+  //   console.log(favorisList);
+  // }
 
   return (
     <div className="Favoris">
@@ -35,7 +38,7 @@ const Favoris = ({ setFavorisList, favorisList }) => {
       {isLoading ? (
         <div className="isLoading">Page Loading...</div>
       ) : (
-        <div>{favorisList}</div>
+        <div>{favourites}</div>
       )}
     </div>
   );

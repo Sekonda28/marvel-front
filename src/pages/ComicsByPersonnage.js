@@ -31,20 +31,20 @@ const ComicsByPersonnage = () => {
         <div className="comicList-container">
           {comicList.comics.map((comic, index) => {
               return(
-                <>
-                <div className = "Char-banner">
+                <div key={comic._id} >
+                <div className = "Char-banner" >
                 <img src="" alt="" />
 
                 </div>
               {comic.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"&&
-            <div className="comicList-card" key = {comic._id}>
+            <div className="comicList-card">
               <img
                 src={comic.thumbnail.path + "." + comic.thumbnail.extension}
                 alt="comic cover"
               />
               <p>{comic.title}</p>
               <p>{comic.description}</p>
-            </div>}</>)
+            </div>}</div>)
           })}
         </div>
       )}
