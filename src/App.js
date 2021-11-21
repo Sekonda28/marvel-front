@@ -10,6 +10,7 @@ import ComicsByPersonnage from "./pages/ComicsByPersonnage";
 
 const App = () => {
   const [favorisList, setfavorisList] = useState([]);
+  const [liked, setLiked] = useState(false);
 
   return (
     <div className="App">
@@ -18,7 +19,14 @@ const App = () => {
         <Routes>
           <Route
             path="/comics/:characterId"
-            element={<ComicsByPersonnage />}
+            element={
+              <ComicsByPersonnage
+                liked={liked}
+                setLiked={setLiked}
+                favorisList={favorisList}
+                setFavorisList={setfavorisList}
+              />
+            }
           ></Route>
         </Routes>
         <Routes>

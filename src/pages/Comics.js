@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Comic from "../components/Comic";
 
-const Comics = ({ favorisList, setFavorisList }) => {
+const Comics = ({ favorisList, setFavorisList, liked, setLiked }) => {
   const [comics, setComics] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [liked,setLiked] = useState(false)
+
 
   useEffect(() => {
     const fetchData = async () => {
