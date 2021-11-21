@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
 const Personnages = () => {
   const [charData, setCharData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,9 +36,7 @@ const Personnages = () => {
         <div className="isLoading">Page loading ...</div>
       ) : (
         <div>
-          <div className="heros">
-            
-          </div>
+          <div className="heros"></div>
           <div className="search">
             <input
               type="text"
@@ -56,12 +53,17 @@ const Personnages = () => {
               return (
                 char.thumbnail.path !==
                   "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" && (
-                    <Link to={`./comics/${char._id}`} key={char._id} state = {{
-                      charPic: char.thumbnail.path+"."+char.thumbnail.extension,
+                  <Link
+                    to={`./comics/${char._id}`}
+                    key={char._id}
+                    state={{
+                      charPic:
+                        char.thumbnail.path + "." + char.thumbnail.extension,
                       charName: char.name,
-                      charDesc: char.description
-                    }} >
-                    <div className="char-card" >
+                      charDesc: char.description,
+                    }}
+                  >
+                    <div className="char-card">
                       <img
                         src={
                           char.thumbnail.path + "." + char.thumbnail.extension
@@ -76,14 +78,13 @@ const Personnages = () => {
                             : "Character description coming soon..."}
                         </p>
                       </div>
-                    </div></Link>
-
-      
+                    </div>
+                  </Link>
                 )
               );
             })}
           </div>
-          </div>
+        </div>
       )}
     </div>
   );

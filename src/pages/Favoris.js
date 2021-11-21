@@ -17,36 +17,33 @@ const Favoris = () => {
     fetchData();
   }, []);
 
-
   return (
     <div className="Favoris">
       {isLoading ? (
         <div className="isLoading">Page Loading...</div>
-      ) : (
+      ) : comics ? (
         <div className="comic-container">
-          {comics?(
-            comics.map((comic, index) => {
-              return (
-                <div className="comic-card" key={index}>
-                  <img
-                    src={comic.thumbnail.path + "." + comic.thumbnail.extension}
-                    alt="Marvel hero"
-                  />
-                  <h2>{comic.title}</h2>
+          {comics.map((comic, index) => {
+            return (
+              <div className="comic-card" key={index}>
+                <img
+                  src={comic.thumbnail.path + "." + comic.thumbnail.extension}
+                  alt="Marvel hero"
+                />
+                <h2>{comic.title}</h2>
 
-                  <p>
-                    {comic.description
-                      ? comic.description
-                      : "Description coming soon..."}
-                  </p>
-                </div>
-              );
-            })
-          ) : (
-            <div className="fav-empty">
-              <span>Your favourites are empty !</span>
-            </div>
-          )}
+                <p>
+                  {comic.description
+                    ? comic.description
+                    : "Description coming soon..."}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="fav-empty">
+          <span>Your favourites are empty !</span>
         </div>
       )}
     </div>
