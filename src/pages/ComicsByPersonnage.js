@@ -13,8 +13,8 @@ const ComicsByPersonnage = ({
   const { characterId } = useParams();
   const [comicList, setComicList] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const location = useLocation()
-  const {charPic, charName, charDesc} = location.state
+  const location = useLocation();
+  const { charPic, charName, charDesc } = location.state;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,19 +39,21 @@ const ComicsByPersonnage = ({
       ) : (
         <>
           <div className="char-banner">
-          <div className = "char-comic-container">
-          <div className = "char-comic-image">
-            <img src={charPic} alt="marvel hero" /></div>
-            <div className = "char-comic-txt">
-              <h1>{charName}</h1>
-              <p>{charDesc}</p>
+            <div className="char-comic-container">
+              <div className="char-comic-image">
+                <img src={charPic} alt="marvel hero" />
+              </div>
+              <div className="char-comic-txt">
+                <h1>{charName}</h1>
+                <p>{charDesc}</p>
+              </div>
             </div>
-          </div></div>
+          </div>
           <div className="comic-container">
             {comicList.comics.map((comic, index) => {
               return (
                 <Comic
-                key = {index}
+                  key={index}
                   comic={comic}
                   favorisList={favorisList}
                   setFavorisList={setFavorisList}

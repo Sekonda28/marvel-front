@@ -7,19 +7,18 @@ const Comics = ({ favorisList, setFavorisList, liked, setLiked }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (search === "") {
           const response = await axios.get(
-            "https://marvel-api-back.herokuapp.com/comics"
+            `https://marvel-api-back.herokuapp.com/comics?title=${search}`
           );
           setComics(response.data);
           setIsLoading(false);
         } else {
           const response = await axios.get(
-            `https://marvel-api-back.herokuapp.com/comics?title=${search}`
+            `https://marvel-api-back.herokuapp.com/comics`
           );
           setComics(response.data);
           setIsLoading(false);
@@ -49,17 +48,21 @@ const Comics = ({ favorisList, setFavorisList, liked, setLiked }) => {
               }}
             />
           </div>
-          <div className="comic-container">{comics.map((comic, index)=>{return(
-          <Comic
-            key = {index}
-            comic={comic}
-            favorisList={favorisList}
-            setFavorisList={setFavorisList}
-            setLiked = {setLiked}
-            liked={liked}
-          />)})}
-        </div></>
-
+          <div className="comic-container">
+            {comics.map((comic, index) => {
+              return (
+                <Comic
+                  key={index}
+                  comic={comic}
+                  favorisList={favorisList}
+                  setFavorisList={setFavorisList}
+                  setLiked={setLiked}
+                  liked={liked}
+                />
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );

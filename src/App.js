@@ -28,8 +28,7 @@ const App = () => {
               />
             }
           ></Route>
-        </Routes>
-        <Routes>
+
           <Route
             path="/comics"
             element={
@@ -39,8 +38,7 @@ const App = () => {
               />
             }
           ></Route>
-        </Routes>
-        <Routes>
+
           <Route
             path="/favourites"
             element={
@@ -50,8 +48,7 @@ const App = () => {
               />
             }
           ></Route>
-        </Routes>
-        <Routes>
+
           <Route path="/" element={<Personnages />}></Route>
         </Routes>
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-const Favoris = ({ setFavorisList}) => {
+const Favoris = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [comics, setComics] = useState();
   useEffect(() => {
@@ -15,8 +15,8 @@ const Favoris = ({ setFavorisList}) => {
     };
 
     fetchData();
-  }, [setFavorisList]);
-  console.log(comics);
+  }, []);
+
 
   return (
     <div className="Favoris">
@@ -24,23 +24,29 @@ const Favoris = ({ setFavorisList}) => {
         <div className="isLoading">Page Loading...</div>
       ) : (
         <div className="comic-container">
-          {comics.map((comic, index) => {
-            return (
-              <div className="comic-card" key={index}>
-                <img
-                  src={comic.thumbnail.path + "." + comic.thumbnail.extension}
-                  alt="Marvel hero"
-                />
-                <h2>{comic.title}</h2>
+          {comics?(
+            comics.map((comic, index) => {
+              return (
+                <div className="comic-card" key={index}>
+                  <img
+                    src={comic.thumbnail.path + "." + comic.thumbnail.extension}
+                    alt="Marvel hero"
+                  />
+                  <h2>{comic.title}</h2>
 
-                <p>
-                  {comic.description
-                    ? comic.description
-                    : "Description coming soon..."}
-                </p>
-              </div>
-            );
-          })}
+                  <p>
+                    {comic.description
+                      ? comic.description
+                      : "Description coming soon..."}
+                  </p>
+                </div>
+              );
+            })
+          ) : (
+            <div className="fav-empty">
+              <span>Your favourites are empty !</span>
+            </div>
+          )}
         </div>
       )}
     </div>
