@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 const Personnages = () => {
   const [charData, setCharData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,7 @@ const Personnages = () => {
           setIsLoading(false);
         } else {
           const response = await axios.get(
-            `https://marvel-api-back.herokuapp.com/characters?name=${search}` 
+            `https://marvel-api-back.herokuapp.com/characters?name=${search}`
           );
           setCharData(response.data);
           setIsLoading(false);
@@ -33,9 +34,12 @@ const Personnages = () => {
   return (
     <div className="Personnages">
       {isLoading ? (
-        <div className = "isLoading">Page loading ...</div>
+        <div className="isLoading">Page loading ...</div>
       ) : (
-        <>
+        <div>
+          <div className="heros">
+            
+          </div>
           <div className="search">
             <input
               type="text"
@@ -52,8 +56,12 @@ const Personnages = () => {
               return (
                 char.thumbnail.path !==
                   "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" && (
-                  <Link to={`/comics/${char._id}`} key={char._id}>
-                    <div className="char-card" key={char._id}>
+                    <Link to={`./comics/${char._id}`} key={char._id} state = {{
+                      charPic: char.thumbnail.path+"."+char.thumbnail.extension,
+                      charName: char.name,
+                      charDesc: char.description
+                    }} >
+                    <div className="char-card" >
                       <img
                         src={
                           char.thumbnail.path + "." + char.thumbnail.extension
@@ -68,13 +76,14 @@ const Personnages = () => {
                             : "Character description coming soon..."}
                         </p>
                       </div>
-                    </div>
-                  </Link>
+                    </div></Link>
+
+      
                 )
               );
             })}
           </div>
-        </>
+          </div>
       )}
     </div>
   );

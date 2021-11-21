@@ -24,11 +24,12 @@
     font-style: normal;
     font-display: swap;
 }
-
-
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 .App {
     background-color: white;
-    height: 100%;
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
 }
@@ -40,6 +41,17 @@
     color: white;
     text-align: center;
   
+}
+
+.CharByPersonnage, .Personnages, .Favoris, .Comics{
+    min-height: calc(83vh)
+}
+h1{
+        font-family: "Roboto Condensed", sans-serif;
+    font-size: 90px;
+    font-weight: bold;
+    padding:10px;
+    text-align: center
 }
 
 h2{
@@ -55,6 +67,9 @@ p{
     line-height: 16px;
 }
 
+a{
+    text-decoration: none;
+}
 /*Search bar*/
 .search{
     max-width: 1260px;
@@ -76,7 +91,8 @@ p{
 /* Containers */
 .comic-container,
 .comicList-container,
-.char-container {
+.char-container
+{
     max-width: 1280px;
     display: flex;
     flex-wrap: wrap;
@@ -90,6 +106,13 @@ p{
 
     width: 225px;
     padding: 10px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.comic-card:hover,
+.comicList-card:hover{
+    opacity: 0.7;
 }
 
 /* Images */
@@ -110,6 +133,7 @@ p{
     top: 0;
     color: white;
     font-family: "Roboto Condensed", sans-serif;
+    z-index: 100;
 
 }
 
@@ -155,7 +179,11 @@ nav>button:hover {
 
     width: 190px;
     padding: 10px;
+    z-index: 1;
 
+}
+.char-card:hover{
+    opacity: 0.7;
 }
 .char-card>img {
     height: 205px;
@@ -175,24 +203,91 @@ nav>button:hover {
 }
 
 
-/* ComicsByPersonnagePage */
+/* Heros */
 
-
-
-
-/* Comics Page */
-
-.favourite-line{
-    font-size: 16px;
-    color: #e23636;
-    font-weight: bold;
-    bottom: 0;
-    cursor: pointer;
+.heros {
+    background-image: url(./assets/images/marvel-heros.jpg);
+    height: 455px;
+    width: 100%;
+    position: relative;
+    background-position: 50%;
+    background-size: cover;
 }
 
-.favourite-line .fafas {
-    margin-left: 55px;
-    font-size: 18px
+.heros>div {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+
+.heros-message {
+    height: 220px;
+    width: 360px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 3px;
+    font-size: 34px;
+    line-height: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 75px;
+    box-shadow: 0 0 2px rgba(17, 17, 17, .24);
+}
+
+
+/* ComicsByPersonnagePage */
+.char-banner{
+    max-height: 400px;
+    background-color: #151515;
+    color: white;
+}
+.char-comic-container{
+    max-width: 1280px;
+    display: flex;
+    margin: 0 auto;
+}
+.char-comic-image>img{
+    max-width: 360px;
+    max-height: 400px;
+}
+.char-comic-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1
+
+}
+.char-comic-txt p{
+   font-size: 16px;
+   line-height: 20px;
+   font-family: "Roboto Condensed", sans-serif;
+   width: 75%;
+   align-self: center;
+
+}
+
+
+/* Comic component */
+
+.fav-container{
+    display: flex;
+    justify-content: space-between;
+    color: #e23636;font-weight: bold; cursor: pointer;
+    padding: 5px 0
+}
+
+.fav-container .fav-para{
+    font-size: 14px;;
+    padding-left: 10px;
+    line-height: none;
+
+}
+
+.fafas {
+    padding-right: 10px;
+    font-size: 16px
 }
 
 
@@ -203,11 +298,20 @@ footer{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
     background-color:#151515;
     height: 85px;
     padding: 0 20px;
     color: white;
-    font-family: "Roboto Condensed", sans-serif;
-    bottom: 0
+    font-family: "Roboto", sans-serif;
+    font-size: 13px
+}
+.footer-container{
+    max-width: 1280px;
+    margin: 0 auto
+}
+
+footer span {
+    font-weight: 700;
 }
 

@@ -51,6 +51,7 @@ const Comics = ({ favorisList, setFavorisList, liked, setLiked }) => {
           </div>
           <div className="comic-container">{comics.map((comic, index)=>{return(
           <Comic
+            key = {index}
             comic={comic}
             favorisList={favorisList}
             setFavorisList={setFavorisList}
