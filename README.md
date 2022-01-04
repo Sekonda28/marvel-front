@@ -1,6 +1,6 @@
 <h1 align="center"><project-name>Marvelopedia</h1>
 
-<p align="center"><project-description>This project creates a 'Wikipedia' of the Marvel comic book and was built using React and Node.  Key features include:
+<p><project-description>This project creates a 'Wikipedia' of the Marvel comic book and was built using React and Node.  Key features include:
 <ul>
 <li>Displaying a list of Marvel superheros in alphabetical order via a backend API request together with a search bar</li>
 <li>Ability to click on individual characters to return a list of comics they are featured in</li>
